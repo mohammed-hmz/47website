@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGE47</title>
+    <link rel="stylesheet" href="moh.css">
+
+</head>
+<body>
+
+  <nav id="nav">
+      <h2>
+        <span > <a href="/"><img src="logo.png" alt="IGE47"/></a></span>
+      </h2>
+      <ul>
+        <!-- <li class="items" ><a id="active">Home</a></li> -->
+        <li class="items"><a href="">About</a></li>
+        <li class="items"><a href="" >Contact</a></li>
+        <li class="items " ><a  onclick="moh ()" >Log in</a></li>
+      </ul>
+    </nav>
+    <content id="content" >
+      <div class="Home">
+      <h1 id="hi">Hi,Future Engineers</h1>
+         <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut atque, sed nesciunt nemo ipsam sunt mollitia doloribus culpa facilis provident quas repellat voluptatem obcaecati similique. Nulla molestias est dignissimos voluptates aliquam tenetur ab labore omnis, perferendis error sint distinctio odit delectus voluptatem corrupti nesciunt animi neque provident, dicta vitae eum.</p>
+        <div class="login" ><button id="log" onclick="moh ()" >log in</button></div>
+      </div>
+         <img src="cont-img.png"  alt="">
+    </content>
+ 
+    <section id="id01" class="modal" style="display: block;">
+      <div class="form-box" id="form-box">
+        <div tabindex="0" onclick="document.getElementById('id01').style.display = 'none';" class="close" title="Close the form">&times;</div>
+          <div class="form-value">
+              <form id="logform" action="/auth/login" method="post">
+                  <h2>Login</h2>
+                  <div class="inputbox">
+                      <ion-icon name="name"></ion-icon>
+                      <input type="text" id="username" name="username" required autofocus>
+                      <label for="username">Username</label>
+                  </div>
+                  <div class="inputbox">
+                      <input type="password" id="password" name="password" required >
+                      <label for="password">Password</label>
+                      <span class="toggle-btn" onclick="togglePassword()">Show</span>
+                  </div>
+                  
+                  <button id="loginbutton2" type="submit">Log in</button>
+                 
+                    <div class="noticediv">
+                        <p id="notice">just for friends</p>
+                    </div>
+                 
+              </form>
+          </div>
+      </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+          document.querySelector("#id01").style.display="block";
+         document.querySelector("#notice").innerHTML=message;
+         document.querySelector("#notice").style.color="red";
+        }
+    });
+</script>
+<script >const section = document.getElementById('id01');
+function moh(){
+  section.style.display = 'inline';
+}
+function close(){
+section.style.display = 'none';
+}
+window.onclick = function(event) {
+if (event.target == section) {
+  section.style.display = "none";
+}
+}</script>
+
+<script>
+        const passwordInput = document.getElementById('password');
+        const toggleBtn = document.querySelector('.toggle-btn');
+
+        function togglePassword() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = 'Show';
+            }
+        }
+
+        passwordInput.addEventListener('focus', () => {
+            toggleBtn.style.display = 'block';
+        });
+
+</script>
+</body>
+
+</html>   

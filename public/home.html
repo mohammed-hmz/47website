@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGE47</title>
+    <link rel="stylesheet" href="home.css">
+    <script defer src="dychome.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+    <source src="tanjiro-in-battle.3840x2160.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<div class="content">
+    <nav id="nav">
+        <h2>
+          <span onclick="   window.location.href='/'"> <img src="logo.png" alt="IGE47" /></span>
+        </h2>
+        <ul>
+          <li class="items" ><a href="" id="active">Home</a></li>
+          <li class="items"><a >About</a></li>
+          <li class="items"><a >Contact</a></li>
+          <li class="items " ><a >Log out</a></li>
+          <li  class="items " id="navsidebars" onclick="openNav()"><img src="sidebare.png" alt="menu"></li>
+        </ul>
+      </nav>
+      <section id="sec1" class="modal">
+        <div class="form-box" >
+          <div tabindex="0" onclick="document.getElementById('sec1').style.display='none'" class="close" title="Close the form">&times;</div>
+            <div class="form-value">
+                <form id="regesterform" hx-post="/auth/register" hx-target="#notice1" hx-swap="innerHTML">
+                    <h2>Regiter</h2>
+                    <div class="inputbox">
+                      
+                        <input type="text" id="username" name="username" required>
+                        <label for="username">Username</label>
+                    </div>
+                    <button id="signbutton" type="submit">Register</button> 
+                    <div class="noticediv">
+                      <p id="notice1"></p>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="sec2" class="modal">
+      <div class="form-box" >
+        <div tabindex="0" onclick="document.getElementById('sec2').style.display='none'" class="close" title="Close the form">&times;</div>
+          <div class="form-value">
+              <form id="deleteform" hx-post="/auth/delete" hx-target="#notice2" hx-swap="innerHTML">
+                  <h2 style="color: red;">Delete</h2>
+                  <div class="inputbox">
+                    
+                      <input type="text" id="username" name="username" required>
+                      <label for="username">Username</label>
+                  </div>
+                  <button id="signbutton" type="submit">Delete</button> 
+                  <div class="noticediv">
+                    <p id="notice2"></p>
+                </div>
+              </form>
+          </div>
+      </div>
+  </section>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+        <a href="#">Contact</a>
+        <a href="#">Contact</a>
+        <a href="#">Contact</a>
+        <a href="#">Contact</a>
+        <div class="owner">
+         <div id="register" onclick="moh()" >Register</div>
+         <div id="delete" onclick="moh2()" >Delete</div>
+        <a href="/auth/Logout">Logout</a>
+        </div>
+      </div>
+    
+    <main id="main">
+      <h1>hi </h1>
+    </main>
+</div>
+   
+
+</body>
+</html>
