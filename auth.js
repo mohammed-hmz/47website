@@ -120,13 +120,12 @@ export async function isLoggedIn (req, res, next)  {
 export function delet (req, res) {
     const {username}=req.body
     db.query("select * from students where username=?",[username],(err, results) => {
-        if (results[0]) {
+        if (results[0] || username!="mohammed hamza") {
             db.query("delete from students where username=?",[username]);
-            toastr.success('This is a success message!');
           return  res.send("deleted successfully");
         } else if(err)  {
            console.log(err)
-        }else return res.send(`user "${username}" does not exist!`);
+        }else  return res.send(`user "${username}" does not exist!`);
        
     })
     

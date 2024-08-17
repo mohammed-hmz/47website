@@ -1,15 +1,3 @@
-const section = document.getElementById('id01');
-function moh (){
-    section.style.display = 'block';
-}
-function close(){
-  section.style.display = 'none';
-}
-window.onclick = function(event) {
-  if (event.target == section) {
-    section.style.display = "none";
-  }
-}
 
 
 
